@@ -10,6 +10,13 @@ export default function Home() {
   useEffect(() => {
     fetchPosts();
   }, []);
+
+  const clearForm = () => {
+    setTitle('');
+    setName('');
+    setComment('');
+  };
+
   
   const fetchPosts = async () => {
     try {
@@ -41,14 +48,8 @@ export default function Home() {
     } catch (error) {
       console.error('Error submitting post:', error);
     }
+    clearForm()
   };
-
-  const clearForm = () => {
-    setTitle('');
-    setName('');
-    setComment('');
-  };
-
 
   return (
     <div>
