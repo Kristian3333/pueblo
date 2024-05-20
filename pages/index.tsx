@@ -9,7 +9,7 @@ export default function Home() {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('/pages/api/posts');
+      const response = await fetch('/api/posts');
       if (!response.ok) {
         throw new Error('Failed to fetch posts');
       }
@@ -23,7 +23,7 @@ export default function Home() {
   const submitPost = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('/pages/api/posts', {
+      const response = await fetch('/api/posts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
