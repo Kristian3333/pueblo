@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import React from 'react'; 
-import { } from 'react';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -43,7 +42,7 @@ export default function Home() {
       console.error('Error submitting post:', error);
     }
   };
-  
+
   const clearForm = () => {
     setTitle('');
     setName('');
