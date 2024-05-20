@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react'; 
+import { } from 'react';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -7,6 +8,10 @@ export default function Home() {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
 
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+  
   const fetchPosts = async () => {
     try {
       const response = await fetch('/api/posts');
@@ -38,6 +43,13 @@ export default function Home() {
       console.error('Error submitting post:', error);
     }
   };
+  
+  const clearForm = () => {
+    setTitle('');
+    setName('');
+    setComment('');
+  };
+
 
   return (
     <div>
